@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Register · TimeBox Python{% endblock %}
+{% block content %}
+<section class="card auth-card">
+  <h1>Register</h1>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" class="stack-form">
+    <label>Username<input name="username" placeholder="Username" required /></label>
+    <label>Password<input name="password" type="password" placeholder="Password" required minlength="4" /></label>
+    <button class="primary-btn" type="submit">Create account</button>
+  </form>
+</section>
+{% endblock %}

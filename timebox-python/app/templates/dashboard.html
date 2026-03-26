@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard · TimeBox Python{% endblock %}
+{% block content %}
+<section class="dashboard-head">
+  <div>
+    <h1>Welcome, {{ username }}</h1>
+    <p>Quick view of today’s task health.</p>
+  </div>
+  <a class="primary-btn" href="/tasks">Manage tasks</a>
+</section>
+<section class="stats-grid">
+  <article class="stat-card"><span>Due Today</span><strong data-testid="due-today-count">{{ counts['due_today'] }}</strong></article>
+  <article class="stat-card"><span>Overdue</span><strong data-testid="overdue-count">{{ counts['overdue'] }}</strong></article>
+  <article class="stat-card"><span>Completed</span><strong data-testid="completed-count">{{ counts['completed'] }}</strong></article>
+</section>
+{% endblock %}

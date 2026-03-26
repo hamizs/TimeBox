@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Tasks · TimeBox Python{% endblock %}
+{% block content %}
+<section class="dashboard-head">
+  <div>
+    <h1>Task Manager</h1>
+    <p>Create, filter, sort, and test time-sensitive tasks.</p>
+  </div>
+</section>
+
+<section class="card controls-card">
+  <form id="task-form" class="task-form">
+    <input id="title" name="title" placeholder="Task title" required />
+    <input id="description" name="description" placeholder="Description" />
+    <input id="due_at" name="due_at" type="datetime-local" required />
+    <button class="primary-btn" type="submit">Add Task</button>
+  </form>
+</section>
+
+<section class="toolbar">
+  <input id="search" placeholder="Search tasks" />
+  <select id="filter_by">
+    <option value="all">All</option>
+    <option value="active">Active</option>
+    <option value="completed">Completed</option>
+    <option value="overdue">Overdue</option>
+  </select>
+  <select id="sort_by">
+    <option value="due_at">Due Date</option>
+    <option value="created_at">Created Date</option>
+    <option value="title">Title</option>
+  </select>
+  <select id="direction">
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+  <button id="slow-load" class="secondary-btn" type="button">Load with Delay</button>
+</section>
+
+<div id="status-message" class="status-message"></div>
+<div id="loading" class="loading hidden" data-testid="loading">Loading tasks…</div>
+<section id="task-list" class="task-list"></section>
+
+<script src="/static/app.js"></script>
+{% endblock %}
